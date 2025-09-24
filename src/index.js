@@ -46,14 +46,38 @@ const pizzaData = [
   },
 ];
 
+// All components are nested in App()
 function App() {
   return (
-    <React.StrictMode>
-      <h2>Hello React!</h2>
+    <div>
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <div>
+      <h1>Fast Food Pizza .co</h1>
+    </div>
+  );
+}
+
+function Menu() {
+  return (
+    <div>
       <Pizza />
       <Pizza />
       <Pizza />
-    </React.StrictMode>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>{new Date().toLocaleTimeString()}. We're currently open!</footer>
   );
 }
 
@@ -65,7 +89,7 @@ function Pizza() {
         alt="funghi pizza
       "
       />
-      <h1>Pizza Funghi</h1>
+      <h2>Pizza Funghi</h2>
       <p>Tomato, mozarella, mushrooms, and onion</p>
     </div>
   );
