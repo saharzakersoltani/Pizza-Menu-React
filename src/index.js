@@ -70,14 +70,21 @@ function Header() {
 }
 
 function Menu() {
+  const pizzas = pizzaData;
+  // const pizzas = [];
+  const numPizzas = pizzas.length;
+
   return (
     <main className="menu">
       <h2>our menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
-        ))}
-      </ul>
+      {numPizzas > 0 && (
+        <ul className="pizzas">
+          {pizzas.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      )}
+
       {/* <Pizza
         name="Pizza Funghi"
         ingredients="Tomato, mozzarella, mushrooms, and onion"
@@ -117,7 +124,11 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()}. We're currently open!
+      {isOpen && (
+        <p className="order">
+          We are open untile {closeHour}:00. Come visit us or order online.
+        </p>
+      )}
     </footer>
   );
 }
@@ -127,4 +138,4 @@ root.render(<App />);
 
 // Props meaning: Props is essentially how we pass data between components. And in particular, from parent components to child components.
 
-// Rendering Lists: Actually Rendering a list is when we have an array and we want to create one component for each element of the array
+// Rendering Lists: Actually Rendering a list is when we have an array and we want to create one component for each element of the array. WE USE map METHOD.
