@@ -72,10 +72,34 @@ function Header() {
 function Menu() {
   return (
     <main className="menu">
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <h2>our menu</h2>
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozzarella, mushrooms, and onion"
+        photoName="pizzas/funghi.jpg"
+        price={12}
+      />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        price={12}
+        photoName="pizzas/spinaci.jpg"
+      />
     </main>
+  );
+}
+
+function Pizza(props) {
+  console.log(props);
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 4}</span>
+      </div>
+    </div>
   );
 }
 
@@ -84,7 +108,6 @@ function Footer() {
   const openHour = 12;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
   // if (hour >= openHour && hour <= closeHour) alert("We're currently open!");
   // else alert("Sorry we're closed!");
 
@@ -95,19 +118,7 @@ function Footer() {
   );
 }
 
-function Pizza() {
-  return (
-    <div>
-      <img
-        src="pizzas/funghi.jpg"
-        alt="funghi pizza
-      "
-      />
-      <h2>Pizza Funghi</h2>
-      <p>Tomato, mozarella, mushrooms, and onion</p>
-    </div>
-  );
-}
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+// Props meaning: Props is essentially how we pass data between components. And in particular, from parent components to child components.
