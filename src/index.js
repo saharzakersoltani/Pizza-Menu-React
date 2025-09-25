@@ -75,7 +75,7 @@ function Menu() {
       <h2>our menu</h2>
       <ul className="pizzas">
         {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} />
+          <Pizza pizzaObj={pizza} key={pizza.name} />
         ))}
       </ul>
       {/* <Pizza
@@ -126,3 +126,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
 // Props meaning: Props is essentially how we pass data between components. And in particular, from parent components to child components.
+
+// Rendering Lists: Actually Rendering a list is when we have an array and we want to create one component for each element of the array
