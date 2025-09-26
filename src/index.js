@@ -78,11 +78,17 @@ function Menu() {
     <main className="menu">
       <h2>our menu</h2>
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>Sorry. We are creatig our new menu.</p>
       )}
@@ -159,3 +165,5 @@ root.render(<App />);
 // 3) conditional rendering with multiple returns
 
 // In order to make our lives easier when working with "props" in practice, we can use "Destructuring Props". Each time that we pass some props into a component, that component will then automatically receive this object of props, which will contain all the props that we passed in. And actually, all components receive this props object. So we can use "Destructuring Props" in order to have cleaner code!
+
+// React Fragment: React Fragment basically lets us group some elements without leaving any trace in the HTML tree, so in the DOM. <></> or <React.Fragment><Raect.Fragment/>
