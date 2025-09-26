@@ -104,6 +104,8 @@ function Menu() {
 }
 
 function Pizza(props) {
+  if (props.pizzaObj.soldOut) return null; //Conditional Rendering With Multiple returns
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.name} />
@@ -127,9 +129,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <p className="order">
-          We are open untile {closeHour}:00. Come visit us or order online.
-        </p>
+        <Order closeHour={closeHour} />
       ) : (
         <p>Sorry. We are closed. We will open at {openHour}:00</p>
       )}
@@ -137,9 +137,23 @@ function Footer() {
   );
 }
 
+function Order(props) {
+  return (
+    <p className="order">
+      We are open untile {props.closeHour}:00. Come visit us or order online.
+    </p>
+  );
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
+// **** Important Notes *****
 // Props meaning: Props is essentially how we pass data between components. And in particular, from parent components to child components.
 
 // Rendering Lists: Actually Rendering a list is when we have an array and we want to create one component for each element of the array. WE USE map METHOD.
+
+// There are 3 ways for conditional rendering:
+// 1)conditional rendering with &&
+// 2)conditional rendering with ternaries operator
+// 3) conditional rendering with multiple returns
