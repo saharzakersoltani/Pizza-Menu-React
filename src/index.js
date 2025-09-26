@@ -103,16 +103,16 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
-  if (props.pizzaObj.soldOut) return null; //Conditional Rendering With Multiple returns
+function Pizza({ pizzaObj }) {
+  if (pizzaObj.soldOut) return null; //Conditional Rendering With Multiple returns
 
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.name} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 4}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price + 4}</span>
       </div>
     </li>
   );
@@ -137,10 +137,10 @@ function Footer() {
   );
 }
 
-function Order(props) {
+function Order({ closeHour }) {
   return (
     <p className="order">
-      We are open untile {props.closeHour}:00. Come visit us or order online.
+      We are open untile {closeHour}:00. Come visit us or order online.
     </p>
   );
 }
@@ -157,3 +157,5 @@ root.render(<App />);
 // 1)conditional rendering with &&
 // 2)conditional rendering with ternaries operator
 // 3) conditional rendering with multiple returns
+
+// In order to make our lives easier when working with "props" in practice, we can use "Destructuring Props". Each time that we pass some props into a component, that component will then automatically receive this object of props, which will contain all the props that we passed in. And actually, all components receive this props object. So we can use "Destructuring Props" in order to have cleaner code!
