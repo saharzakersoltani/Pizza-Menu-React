@@ -7,6 +7,10 @@ This app displays a simple pizza menu using React components, props, and JSX.
 - Pass and handle **props**
 - Work with **JSX** syntax
 
+![Screenshot](./pizzaMenu.png)
+
+
+
 ## Run the project
 
 ```bash
